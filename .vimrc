@@ -12,3 +12,6 @@ set hls
 
 " tab space
 set tabstop=4
+
+" クリップぼーど有効化
+set clipboard=unnamedplus
