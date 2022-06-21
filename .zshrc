@@ -14,6 +14,8 @@ alias fzshowid="git log --oneline | fzf | cut -d \" \" -f1 | xargs git show"
 alias fzmerge="git branch | fzf | xargs git merge"
 alias fzlog="fzf | xargs git log"
 
+source $HOME/Documents/shell/zsh/gdo.sh
+
 if [ "$(uname -m)" = "arm64" ]; then
   # arm64
   change_profile ARM
