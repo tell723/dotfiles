@@ -4,8 +4,22 @@ function exportPath() {
 
 export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 exportPath ~/sh
-
 export DEVELOPER_DIR="/Applications/Xcode13.2.1.app/Contents/Developer"
+
+
+function bookmark() {
+	if [[ "${1}" ]]; then
+		if [[ -d "${1}" ]]; then
+			echo "${1}" >> ~/.bookmark
+		else
+			echo "could not find directroy: ${1}" >&2
+			return 1
+		fi
+	else
+		echo "`pwd`" >> ~/.bookmark
+	fi
+}
+
 
 alias change_profile='(){echo -e "\033]1337;SetProfile=$1\a"}'
 alias cd_gdoshop='cd ~/Documents/GDO/shopp_app/'
@@ -28,6 +42,7 @@ alias fzcheckouttag="git tag | fzf | cut -d \" \" -f1 | xargs git checkout"
 alias fzshowid="git log --oneline | fzf | cut -d \" \" -f1 | xargs git show"
 alias fzmerge="git branch | fzf | xargs git merge"
 alias fzlog="fzf | xargs git log"
+alias fzcd='cd `cat ~/.bookmark | fzf`'
 
 #source $HOME/Documents/shell/zsh/gdo.sh
 
