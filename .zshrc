@@ -7,16 +7,16 @@ exportPath ~/sh
 export DEVELOPER_DIR="/Applications/Xcode13.2.1.app/Contents/Developer"
 
 
-function bookmark() {
+function bmd() {
 	if [[ "${1}" ]]; then
 		if [[ -d "${1}" ]]; then
-			echo "${1}" >> ~/.bookmark
+			echo "${1}" >> ~/.bmd
 		else
 			echo "could not find directroy: ${1}" >&2
 			return 1
 		fi
 	else
-		echo "`pwd`" >> ~/.bookmark
+		echo "`pwd`" >> ~/.bmd
 	fi
 }
 
@@ -67,7 +67,7 @@ function install_powerline_precmd() {
   precmd_functions+=(powerline_precmd)
 }
 
-if [ "$TERM" != "linux" ]; then
+if [ "$TERM" != "linux" ] && [ "$(uname -m)" = "arm64" ]; then
     install_powerline_precmd
 fi
 
