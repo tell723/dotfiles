@@ -14,4 +14,7 @@ set hls
 set tabstop=4
 
 " クリップぼーど有効化
-set clipboard=unnamedplus
+"set clipboard=unnamedplus
+
+"インデントキープ"
+set autoindent

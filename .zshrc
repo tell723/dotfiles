@@ -1,20 +1,35 @@
+function exportPath() {
+	export PATH=$1:$PATH
+}
+
 export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
-export DEVELOPER_DIR="/Applications/Xcode12.app/Contents/Developer"
+exportPath ~/sh
+
+export DEVELOPER_DIR="/Applications/Xcode13.2.1.app/Contents/Developer"
 
 alias change_profile='(){echo -e "\033]1337;SetProfile=$1\a"}'
 alias cd_gdoshop='cd ~/Documents/GDO/shopp_app/'
 alias cd_smooth='cd ~/Documents/smooth_meeting/'
+alias cppwd=`pwd | pbcopy`
+alias pg='pwgen -yB 10 10 | grep -v "[?|,\<\>#]" | awk "NR==1" | xargs echo'
+alias cppg='pg | pbcopy'
+
+function cpppcom() {
+	pass=`pg`
+	echo $1' '$pass
+	echo 'pp auth username '$1' '$pass | pbcopy
+}
 
 # alias fuzzy
 alias fzswitch="git branch | fzf | xargs git switch"
-alias fzupmodule="ls /Users/t-watanabe/Documents/GDO/module/stg | fzf | xargs upmodule.sh"
+alias fzupmodule="ls /Users/t-watanabe/Documents/GDO/shop_app/module/ios/exports/stg | fzf | xargs upmodule.sh"
 alias fzcheckoutid="git log --oneline | fzf | cut -d \" \" -f1 | xargs git checkout"
 alias fzcheckouttag="git tag | fzf | cut -d \" \" -f1 | xargs git checkout"
 alias fzshowid="git log --oneline | fzf | cut -d \" \" -f1 | xargs git show"
 alias fzmerge="git branch | fzf | xargs git merge"
 alias fzlog="fzf | xargs git log"
 
-source $HOME/Documents/shell/zsh/gdo.sh
+#source $HOME/Documents/shell/zsh/gdo.sh
 
 if [ "$(uname -m)" = "arm64" ]; then
   # arm64
