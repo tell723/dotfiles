@@ -42,7 +42,7 @@ alias fzcheckouttag="git tag | fzf | cut -d \" \" -f1 | xargs git checkout"
 alias fzshowid="git log --oneline | fzf | cut -d \" \" -f1 | xargs git show"
 alias fzmerge="git branch | fzf | xargs git merge"
 alias fzlog="fzf | xargs git log"
-alias fzcd='cd `cat ~/.bookmark | fzf`'
+alias fzcd='cd `cat ~/.bmd | fzf`'
 
 #source $HOME/Documents/shell/zsh/gdo.sh
 
