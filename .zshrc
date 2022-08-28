@@ -20,6 +20,13 @@ function bmd() {
 	fi
 }
 
+function show() {
+	stdin=`cat`
+	echo $stdin
+	echo $stdin > ~/.tmpout
+	open ~/.tmpout
+}
+
 
 alias change_profile='(){echo -e "\033]1337;SetProfile=$1\a"}'
 alias cd_gdoshop='cd ~/Documents/GDO/shopp_app/'
