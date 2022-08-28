@@ -51,7 +51,6 @@ alias fzmerge="git branch | fzf | xargs git merge"
 alias fzlog="fzf | xargs git log"
 alias fzcd='cd `cat ~/.bmd | fzf`'
 
-#source $HOME/Documents/shell/zsh/gdo.sh
 
 if [ "$(uname -m)" = "arm64" ]; then
   # arm64
