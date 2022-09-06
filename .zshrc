@@ -50,8 +50,7 @@ alias fzshowid="git log --oneline | fzf | cut -d \" \" -f1 | xargs git show"
 alias fzmerge="git branch | fzf | xargs git merge"
 alias fzlog="fzf | xargs git log"
 alias fzcd='cd `cat ~/.bmd | fzf`'
-
-
+alias fzvim='vim `ls -a | fzf`'
 if [ "$(uname -m)" = "arm64" ]; then
   # arm64
   change_profile ARM
