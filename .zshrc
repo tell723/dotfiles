@@ -51,6 +51,10 @@ function cpppcom() {
 	echo 'pp auth username '$1' '$pass | pbcopy
 }
 
+#alias git
+alias pushnb="git push --set-upstream origin \`git branch --show-current\`"
+alias git="git fetch 2> /dev/null &; git"
+
 # alias fuzzy
 alias fzswitch="git branch | fzf | xargs git switch"
 alias fzupmodule="ls /Users/t-watanabe/Documents/GDO/shop_app/module/ios/exports/stg | fzf | xargs upmodule.sh"
