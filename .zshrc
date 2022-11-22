@@ -27,6 +27,16 @@ function show() {
 	open ~/.tmpout
 }
 
+function decodeurl() {
+	echo $1 | nkf -w --url-input
+}
+
+function sendgdoapk() {
+	apkpath="/Users/t-watanabe/Documents/GDO/shop_app/android/golfdigest/app/build/outputs/apk/golfdigest_stg/debug/app-golfdigest_stg-debug$1.apk"
+	sendto="t4.zyyx.jp:/home/zyyx/www/gdo"
+	rsync -av $apkpath $sendto
+}
+
 
 alias change_profile='(){echo -e "\033]1337;SetProfile=$1\a"}'
 alias cd_gdoshop='cd ~/Documents/GDO/shopp_app/'
