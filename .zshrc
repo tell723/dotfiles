@@ -87,21 +87,25 @@ fi
 
 ### powerline
 
-function powerline_precmd() {
-    PS1="$(powerline-shell --shell zsh $?)"
-}
+if type powerline-shell > /dev/null 2>&1; then
 
-function install_powerline_precmd() {
-  for s in "${precmd_functions[@]}"; do
-    if [ "$s" = "powerline_precmd" ]; then
-      return
-    fi
-  done
-  precmd_functions+=(powerline_precmd)
-}
+  function powerline_precmd() {
+      PS1="$(powerline-shell --shell zsh $?)"
+  }
 
-if [ "$TERM" != "linux" ] && [ "$(uname -m)" = "arm64" ]; then
-    install_powerline_precmd
+  function install_powerline_precmd() {
+    for s in "${precmd_functions[@]}"; do
+      if [ "$s" = "powerline_precmd" ]; then
+        return
+      fi
+    done
+    precmd_functions+=(powerline_precmd)
+  }
+
+  if [ "$TERM" != "linux" ] && [ "$(uname -m)" = "arm64" ]; then
+      install_powerline_precmd
+  fi
+
 fi
 
 
