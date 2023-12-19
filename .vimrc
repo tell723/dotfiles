@@ -25,6 +25,8 @@ set history=200
 
 set incsearch
 
+set backspace=indent,eol,start
+
 filetype plugin on
 
 
