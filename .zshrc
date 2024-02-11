@@ -70,6 +70,8 @@ alias fzapply="git stash apply $(git stash list | fzf | cut -d : -f1)"
 alias fzadd="git diff --name-only | fzf | xargs git add -p "
 alias fzlog="fzf | xargs git log"
 alias fzcd='cd `cat ~/.bmd | fzf`'
+alias fzunstage="git diff --cached --name-only | fzf | xargs git unstage"
+
 
 
 
